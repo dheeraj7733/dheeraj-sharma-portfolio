@@ -3,7 +3,44 @@
 @layer base {
   html {
     scroll-behavior: smooth;
-    background-color: #09090b;
-    color: #f4f4f5;
+    background-color: #040712;
+    color: #f1f5f9;
+    font-family: "Plus Jakarta Sans", sans-serif;
   }
+
+  body {
+    background-color: #040712;
+    overflow-x: hidden;
+  }
+}
+
+.font-editorial {
+  font-family: "Cormorant Garamond", Georgia, serif;
+}
+
+/* Subtle Topographic Contour Band inspired by luxury editorial UI */
+.bg-topo-band {
+  background-color: #060b19;
+  background-image: radial-gradient(circle at 20% 50%, rgba(56, 189, 248, 0.06) 0%, transparent 45%),
+    radial-gradient(circle at 80% 50%, rgba(212, 163, 89, 0.06) 0%, transparent 45%),
+    repeating-radial-gradient(
+      circle at 50% 50%,
+      rgba(148, 163, 184, 0.04) 0px,
+      rgba(148, 163, 184, 0.04) 1px,
+      transparent 1px,
+      transparent 28px
+    );
+}
+
+@keyframes slowOrbit {
+  0% {
+    transform: rotateX(62deg) rotateY(-18deg) rotateZ(0deg);
+  }
+  100% {
+    transform: rotateX(62deg) rotateY(-18deg) rotateZ(360deg);
+  }
+}
+
+.animate-orbit-3d {
+  animation: slowOrbit 22s linear infinite;
 }

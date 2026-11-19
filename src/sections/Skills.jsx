@@ -6,16 +6,15 @@ const categoryIcons = [Cpu, Layout, Server];
 
 export default function Skills() {
   return (
-    <section id="skills" className="border-t border-zinc-900 py-24">
+    <section id="skills" className="border-b border-white/[0.06] py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-14">
-          <p className="font-mono text-sm font-medium text-emerald-400">// Tech Stack</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Skills & Technologies
-          </h2>
-          <p className="mt-3 max-w-2xl text-zinc-400">
-            Tools and frameworks I use to design, build, containerize, and deploy modern applications.
+          <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#d4a359]">
+            // Core Capabilities
           </p>
+          <h2 className="font-editorial mt-2 text-3xl font-semibold text-white sm:text-5xl">
+            Technical Stack
+          </h2>
         </div>
 
         <div className="grid gap-6 md:grid-cols-3">
@@ -28,20 +27,20 @@ export default function Skills() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true, amount: 0.2 }}
                 transition={{ duration: 0.4, delay: idx * 0.1 }}
-                className="rounded-2xl border border-zinc-800 bg-zinc-900/40 p-6"
+                className="border border-white/10 bg-[#070c1d]/60 p-7"
               >
                 <div className="mb-5 flex items-center gap-3">
-                  <div className="rounded-lg border border-zinc-800 bg-zinc-950 p-2.5 text-emerald-400">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="font-semibold text-zinc-100">{group.category}</h3>
+                  <Icon className="h-5 w-5 text-[#d4a359]" />
+                  <h3 className="text-xs font-bold uppercase tracking-[0.2em] text-white">
+                    {group.category}
+                  </h3>
                 </div>
 
                 <div className="flex flex-wrap gap-2">
                   {group.items.map((skill) => (
                     <span
                       key={skill}
-                      className="rounded-lg border border-zinc-800 bg-zinc-950/90 px-3 py-1.5 font-mono text-xs text-zinc-300 transition hover:border-emerald-500/40 hover:text-emerald-300"
+                      className="border border-white/10 bg-[#040712] px-3 py-1.5 font-mono text-xs text-slate-300 transition hover:border-[#d4a359]/50 hover:text-[#d4a359]"
                     >
                       {skill}
                     </span>

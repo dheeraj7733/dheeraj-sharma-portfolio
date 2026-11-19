@@ -1,97 +1,99 @@
-
 import { motion } from "motion/react";
-import { ArrowRight, FileText } from "lucide-react";
+import { ArrowUpRight, FileText } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "../components/Icons";
+import RobotLaptop3D from "../components/RobotLaptop3D";
 import { personalInfo } from "../data/portfolioData";
 
 export default function Hero() {
   return (
-    <section className="relative overflow-hidden py-24 sm:py-32">
-      {/* Subtle ambient background glow */}
-      <div className="pointer-events-none absolute -top-24 left-1/2 -z-10 h-96 w-96 -translate-x-1/2 rounded-full bg-emerald-500/10 blur-3xl" />
+    <section className="relative overflow-hidden border-b border-white/[0.06] py-16 sm:py-24">
+      {/* Subtle Midnight & Gold Ambient Lighting */}
+      <div className="pointer-events-none absolute -top-24 left-10 -z-10 h-96 w-96 rounded-full bg-sky-500/10 blur-3xl" />
+      <div className="pointer-events-none absolute bottom-0 right-10 -z-10 h-96 w-96 rounded-full bg-[#d4a359]/10 blur-3xl" />
 
-      <div className="mx-auto max-w-6xl px-6">
+      <div className="mx-auto grid max-w-6xl items-center gap-12 px-6 lg:grid-cols-12">
+        {/* LEFT SIDE: Greeting, Name, Agentic AI Role & CTAs */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="max-w-3xl"
+          initial={{ opacity: 0, x: -24 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.55 }}
+          className="lg:col-span-6"
         >
-          {/* Status Badge */}
-          <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/10 px-3.5 py-1.5 text-xs font-medium text-emerald-300">
-            <span className="h-2 w-2 animate-pulse rounded-full bg-emerald-400" />
-            {personalInfo.availability}
+          {/* Availability Badge */}
+          <div className="mb-6 inline-flex items-center gap-2.5 border border-[#d4a359]/40 bg-[#d4a359]/10 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.22em] text-[#d4a359]">
+            <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-[#d4a359]" />
+            <span>{personalInfo.availability}</span>
           </div>
 
-          {/* Main Heading */}
-          <h1 className="text-4xl font-extrabold tracking-tight text-zinc-100 sm:text-6xl">
-            Hi, I’m{" "}
-            <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-              {personalInfo.name}
-            </span>
+          {/* Hello, I am Dheeraj Sharma */}
+          <p className="text-sm font-medium tracking-wide text-slate-300 sm:text-base">
+            Hello, I am
+          </p>
+          <h1 className="font-editorial mt-1 text-4xl font-semibold tracking-wide text-white sm:text-6xl">
+            {personalInfo.name}
           </h1>
 
-          <h2 className="mt-3 text-2xl font-semibold text-zinc-300 sm:text-3xl">
+          {/* Agentic AI & Full-Stack Title */}
+          <h2 className="mt-3 text-lg font-semibold text-[#d4a359] sm:text-xl">
             {personalInfo.role}
           </h2>
 
-          <p className="mt-6 text-base leading-relaxed text-zinc-400 sm:text-lg">
-            {personalInfo.tagline}
+          {/* Short Description */}
+          <p className="mt-5 text-sm leading-relaxed text-slate-300/85 sm:text-base">
+            Building autonomous Agentic AI workflows, intelligent automation systems, and scalable full-stack web applications from backend APIs to modern interactive interfaces.
           </p>
 
-          {/* Tech Pill Highlights */}
-          <div className="mt-6 flex flex-wrap gap-2">
-            {["Python", "FastAPI", "React.js", "Node.js", "MongoDB", "Docker", "GenAI"].map((tech) => (
-              <span
-                key={tech}
-                className="rounded-md border border-zinc-800 bg-zinc-900/80 px-2.5 py-1 font-mono text-xs text-zinc-300"
-              >
-                {tech}
-              </span>
-            ))}
-          </div>
-
-          {/* CTA Buttons */}
-          <div className="mt-10 flex flex-wrap items-center gap-4">
+          {/* Action Buttons */}
+          <div className="mt-8 flex flex-wrap items-center gap-4">
             <a
               href="#projects"
-              className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-5 py-3 text-sm font-semibold text-zinc-950 transition hover:bg-emerald-400"
+              className="group inline-flex items-center gap-2.5 border border-[#d4a359] bg-[#d4a359] px-6 py-3 text-[11px] font-bold uppercase tracking-[0.22em] text-[#040712] transition hover:bg-amber-300"
             >
-              View Projects
-              <ArrowRight className="h-4 w-4" />
+              <span>Explore Projects</span>
+              <ArrowUpRight className="h-4 w-4 transition group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
             </a>
 
             <a
               href={personalInfo.resumePath}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-zinc-700 bg-zinc-900 px-5 py-3 text-sm font-semibold text-zinc-200 transition hover:border-zinc-500 hover:bg-zinc-800"
+              className="inline-flex items-center gap-2 border border-white/20 bg-white/[0.03] px-6 py-3 text-[11px] font-semibold uppercase tracking-[0.22em] text-white transition hover:border-[#d4a359] hover:text-[#d4a359]"
             >
-              <FileText className="h-4 w-4 text-emerald-400" />
-              Resume
+              <FileText className="h-3.5 w-3.5 text-[#d4a359]" />
+              <span>Resume</span>
             </a>
 
-            <div className="flex items-center gap-2 pl-2">
+            <div className="flex items-center gap-2 pl-1">
               <a
                 href={personalInfo.github}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg border border-zinc-800 p-3 text-zinc-400 transition hover:border-zinc-700 hover:text-zinc-100"
+                className="border border-white/15 bg-white/[0.02] p-3 text-slate-300 transition hover:border-[#d4a359] hover:text-white"
                 aria-label="GitHub Profile"
               >
-                <GithubIcon className="h-5 w-5" />
+                <GithubIcon className="h-4 w-4" />
               </a>
               <a
                 href={personalInfo.linkedin}
                 target="_blank"
                 rel="noreferrer"
-                className="rounded-lg border border-zinc-800 p-3 text-zinc-400 transition hover:border-zinc-700 hover:text-zinc-100"
+                className="border border-white/15 bg-white/[0.02] p-3 text-slate-300 transition hover:border-sky-400 hover:text-white"
                 aria-label="LinkedIn Profile"
               >
-                <LinkedinIcon className="h-5 w-5" />
+                <LinkedinIcon className="h-4 w-4" />
               </a>
             </div>
           </div>
+        </motion.div>
+
+        {/* RIGHT SIDE: 3D Robot + Laptop + Floating Tech Stack */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.94 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="lg:col-span-6"
+        >
+          <RobotLaptop3D />
         </motion.div>
       </div>
     </section>

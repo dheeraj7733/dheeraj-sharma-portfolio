@@ -1,100 +1,94 @@
 import { motion } from "motion/react";
-import { ExternalLink, FolderGit2, CheckCircle2 } from "lucide-react";
+import { ExternalLink, CheckCircle2 } from "lucide-react";
 import { GithubIcon } from "../components/Icons";
+import TiltCard from "../components/TiltCard";
 import { featuredProjects } from "../data/portfolioData";
 
 export default function Projects() {
   return (
-    <section id="projects" className="border-t border-zinc-900 py-24">
+    <section id="projects" className="border-b border-white/[0.06] py-24">
       <div className="mx-auto max-w-6xl px-6">
         <div className="mb-14">
-          <p className="font-mono text-sm font-medium text-emerald-400">// Featured Work</p>
-          <h2 className="mt-2 text-3xl font-bold tracking-tight text-zinc-100 sm:text-4xl">
-            Projects I’ve Built
-          </h2>
-          <p className="mt-3 max-w-2xl text-zinc-400">
-            Production-ready full-stack web applications and AI services architected for reliability and clean user experience.
+          <p className="text-[11px] font-semibold uppercase tracking-[0.35em] text-[#d4a359]">
+            // Selected Work
           </p>
+          <h2 className="font-editorial mt-2 text-3xl font-semibold text-white sm:text-5xl">
+            Featured Projects
+          </h2>
         </div>
 
         <div className="grid gap-8 md:grid-cols-2">
           {featuredProjects.map((project, index) => (
-            <motion.article
+            <motion.div
               key={project.title}
               initial={{ opacity: 0, y: 24 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
               transition={{ duration: 0.45, delay: index * 0.1 }}
-              className="group flex flex-col justify-between rounded-2xl border border-zinc-800 bg-zinc-900/50 p-7 transition hover:border-emerald-500/40 hover:bg-zinc-900"
             >
-              <div>
-                {/* Top Header */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="flex items-center gap-3">
-                    <div className="rounded-xl border border-emerald-500/20 bg-emerald-500/10 p-2.5 text-emerald-400">
-                      <FolderGit2 className="h-5 w-5" />
-                    </div>
+              <TiltCard className="group flex h-full flex-col justify-between border border-white/10 bg-[#070c1d]/80 p-8 transition hover:border-[#d4a359]/50">
+                <div>
+                  <div className="flex items-start justify-between gap-4">
                     <div>
-                      <h3 className="text-xl font-bold text-zinc-100 group-hover:text-emerald-400 transition">
+                      <span className="font-mono text-xs font-semibold tracking-widest text-[#d4a359]">
+                        {project.index}
+                      </span>
+                      <h3 className="font-editorial mt-1 text-2xl font-semibold text-white transition group-hover:text-[#d4a359]">
                         {project.title}
                       </h3>
-                      <p className="text-xs font-medium text-zinc-400">{project.subtitle}</p>
+                      <p className="text-xs uppercase tracking-[0.18em] text-slate-400">
+                        {project.subtitle}
+                      </p>
+                    </div>
+
+                    <div className="flex items-center gap-2">
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="border border-white/10 bg-white/[0.02] p-2.5 text-slate-300 transition hover:border-white/30 hover:text-white"
+                        aria-label={`${project.title} Source Code`}
+                      >
+                        <GithubIcon className="h-4 w-4" />
+                      </a>
+                      {project.liveUrl && project.liveUrl !== "#" && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noreferrer"
+                          className="border border-[#d4a359]/40 bg-[#d4a359]/10 p-2.5 text-[#d4a359] transition hover:bg-[#d4a359]/20"
+                          aria-label={`${project.title} Live Demo`}
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </a>
+                      )}
                     </div>
                   </div>
 
-                  {/* Links */}
-                  <div className="flex items-center gap-2">
-                    <a
-                      href={project.githubUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="rounded-lg border border-zinc-800 p-2 text-zinc-400 transition hover:border-zinc-600 hover:text-zinc-100"
-                      aria-label={`${project.title} Source Code`}
-                    >
-                      <GithubIcon className="h-4 w-4" />
-                    </a>
-                    {project.liveUrl && project.liveUrl !== "#" && (
-                      <a
-                        href={project.liveUrl}
-                        target="_blank"
-                        rel="noreferrer"
-                        className="rounded-lg border border-zinc-800 p-2 text-zinc-400 transition hover:border-emerald-500/50 hover:text-emerald-400"
-                        aria-label={`${project.title} Live Demo`}
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </a>
-                    )}
-                  </div>
+                  <p className="mt-5 text-sm leading-relaxed text-slate-300/85">{project.description}</p>
+
+                  <ul className="mt-5 space-y-2">
+                    {project.highlights.map((point) => (
+                      <li key={point} className="flex items-start gap-2 text-xs text-slate-400">
+                        <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#d4a359]" />
+                        <span>{point}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
 
-                {/* Description */}
-                <p className="mt-5 text-sm leading-relaxed text-zinc-400">
-                  {project.description}
-                </p>
-
-                {/* Key Highlights */}
-                <ul className="mt-5 space-y-2">
-                  {project.highlights.map((point) => (
-                    <li key={point} className="flex items-start gap-2 text-xs text-zinc-300">
-                      <CheckCircle2 className="mt-0.5 h-3.5 w-3.5 shrink-0 text-emerald-400" />
-                      <span>{point}</span>
-                    </li>
+                <div className="mt-7 flex flex-wrap gap-2 border-t border-white/10 pt-5">
+                  {project.tech.map((item) => (
+                    <span
+                      key={item}
+                      className="border border-white/10 bg-[#040712] px-2.5 py-1 font-mono text-[11px] text-slate-300"
+                    >
+                      {item}
+                    </span>
                   ))}
-                </ul>
-              </div>
-
-              {/* Tech Stack Tags */}
-              <div className="mt-7 flex flex-wrap gap-2 border-t border-zinc-800/80 pt-5">
-                {project.tech.map((item) => (
-                  <span
-                    key={item}
-                    className="rounded-md bg-zinc-950 px-2.5 py-1 font-mono text-xs text-zinc-300 border border-zinc-800"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </motion.article>
+                </div>
+              </TiltCard>
+            </motion.div>
           ))}
         </div>
       </div>
