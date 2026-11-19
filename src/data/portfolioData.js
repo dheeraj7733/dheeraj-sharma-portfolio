@@ -48,7 +48,7 @@ export const featuredProjects = [
       "Built modular section architecture for effortless customization and Vercel deployment",
     ],
     tech: ["React", "Vite", "Tailwind CSS v4", "Motion", "3D CSS Transforms"],
-    liveUrl: "https://github.com/dheeraj7733/dheeraj-sharma-portfolio",
+    liveUrl: "https://dheeraj-sharma-portfolio-sooty.vercel.app",
     githubUrl: "https://github.com/dheeraj7733/dheeraj-sharma-portfolio",
   },
 ];
