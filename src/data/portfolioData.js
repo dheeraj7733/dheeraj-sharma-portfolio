@@ -138,6 +138,13 @@ export const education = [
 
 export const certifications = [
   {
+    title: "AI Tools & Claude Workshop",
+    issuer: "be10x (Verified Workshop — AI Presentations, Data Analysis & AI Coding/Debugging)",
+    date: "November 19, 2026",
+    badge: "AI & Claude Workshop",
+    image: "/certificates/be10x-ai-workshop.jpg",
+  },
+  {
     title: "Full Stack Web Development (60-Day In-Campus Training)",
     issuer: "Upflairs Pvt. Ltd. at Shree KKarni Universe College (Dept. of Computer Science)",
     date: "Sep 2024 – Nov 2024",
@@ -152,7 +159,6 @@ export const certifications = [
     image: "/certificates/becil-webdev.jpg",
   },
 ];
-
 export const achievements = [
   {
     title: "Coordinator — UNI-TEAS 2026 (5th International Conference)",
