@@ -149,14 +149,14 @@ export const certifications = [
     issuer: "Upflairs Pvt. Ltd. at Shree KKarni Universe College (Dept. of Computer Science)",
     date: "Sep 2024 – Nov 2024",
     badge: "Full-Stack Training",
-    image: "/certificates/upflairs-fullstack.jpg",
+    image: "/certificates/upflairs-fullstack.jpeg",
   },
   {
     title: "Certified WebPage Designing & Development Program",
     issuer: "BECIL (Broadcast Engineering Consultants India Limited) — Ministry of I&B, Govt. of India",
     date: "Feb 2024 – Apr 2024",
     badge: "Govt. of India Affiliated",
-    image: "/certificates/becil-webdev.jpg",
+    image: "/certificates/becil-webdev.jpeg",
   },
 ];
 export const achievements = [
